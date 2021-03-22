@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Akka.Configuration;
 using Microsoft.Extensions.Configuration;
 
 namespace AkkaConfigProvider
@@ -51,9 +52,12 @@ namespace AkkaConfigProvider
             return _configuration.GetSection("akka").Get<T>();
         }
 
-        private T GetAkkaConfig<T>()
+        private Config GetAkkaConfig<T>()
         {
-            throw new NotImplementedException();
+            T akkaConfig = MapAkkaConfig<T>();
+
+            var fullConfig = new {akka = akkaConfig};
+            return ConfigurationFactory.FromObject(fullConfig);
         }
     }
 }
