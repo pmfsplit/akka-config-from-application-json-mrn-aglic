@@ -5,4 +5,12 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\AkkaConfigProvider\AkkaConfigProvider.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Akka" Version="1.4.17" />
+    </ItemGroup>
+
 </Project>
