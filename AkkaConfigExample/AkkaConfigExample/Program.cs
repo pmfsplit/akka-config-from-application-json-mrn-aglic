@@ -19,9 +19,9 @@ namespace AkkaConfigExample
         static void Main(string[] args)
         {
             var configProvider = new ConfigProvider();
-            // var config = configProvider.GetAkkaConfig<>();
+            var config = configProvider.GetAkkaConfig<MyAkkaConfig>();
             
-            using (var system = ActorSystem.Create("config-example"))
+            using (var system = ActorSystem.Create("config-example", config))
             {
                 var props = Props.Create(() => new MyActor())
                     .WithRouter(FromConfig.Instance);
