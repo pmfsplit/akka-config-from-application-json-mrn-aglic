@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace AkkaConfigProvider
 {
-    class ConfigProvider
+    public class ConfigProvider
     {
         private readonly IConfiguration _configuration;
         public string BaseDir { get; }
@@ -52,7 +52,7 @@ namespace AkkaConfigProvider
             return _configuration.GetSection("akka").Get<T>();
         }
 
-        private Config GetAkkaConfig<T>()
+        public Config GetAkkaConfig<T>()
         {
             T akkaConfig = MapAkkaConfig<T>();
 
