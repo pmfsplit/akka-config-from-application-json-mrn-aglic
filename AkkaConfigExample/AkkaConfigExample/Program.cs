@@ -1,6 +1,7 @@
 ﻿using System;
 using Akka.Actor;
 using Akka.Routing;
+using AkkaConfigProvider;
 
 namespace AkkaConfigExample
 {
@@ -17,6 +18,9 @@ namespace AkkaConfigExample
     {
         static void Main(string[] args)
         {
+            var configProvider = new ConfigProvider();
+            // var config = configProvider.GetAkkaConfig<>();
+            
             using (var system = ActorSystem.Create("config-example"))
             {
                 var props = Props.Create(() => new MyActor())
