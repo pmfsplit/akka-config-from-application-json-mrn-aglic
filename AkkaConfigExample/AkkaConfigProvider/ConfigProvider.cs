@@ -23,6 +23,14 @@ namespace AkkaConfigProvider
             string baseDir = GetBaseDir();
         }
 
+        private IConfiguration getConfiguration(string filename, string baseDir)
+        {
+            return new ConfigurationBuilder()
+                .SetBasePath(baseDir)
+                .AddJsonFile($"{baseDir}/{filename}")
+                .Build();
+        }
+
         private string GetBaseDir()
         {
             var currDir = Directory.GetCurrentDirectory();
