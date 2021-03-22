@@ -22,8 +22,8 @@ namespace AkkaConfigProvider
         public ConfigProvider()
         {
             string baseDir = GetBaseDir();
-            string defaultfilename = "appsettings.json";
-            _configuration = GetConfiguration(defaultfilename, baseDir);
+            string defaultFilename = "appsettings.json";
+            _configuration = GetConfiguration(defaultFilename, baseDir);
         }
 
         private IConfiguration GetConfiguration(string filename, string baseDir)
