@@ -48,7 +48,7 @@ namespace AkkaConfigProvider
 
         private T MapAkkaConfig<T>()
         {
-            throw new NotImplementedException();
+            return _configuration.GetSection("akka").Get<T>();
         }
 
         private T GetAkkaConfig<T>()
