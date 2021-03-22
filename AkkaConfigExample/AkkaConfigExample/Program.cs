@@ -32,6 +32,8 @@ namespace AkkaConfigExample
                 router.Tell(new Print());
                 router.Tell(new Print());
                 router.Tell(new Print());
+
+                system.Terminate().Wait();
             }
         }
     }
