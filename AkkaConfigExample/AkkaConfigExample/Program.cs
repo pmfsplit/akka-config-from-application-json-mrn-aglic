@@ -1,5 +1,6 @@
 ﻿using System;
 using Akka.Actor;
+using Akka.Routing;
 
 namespace AkkaConfigExample
 {
@@ -18,6 +19,15 @@ namespace AkkaConfigExample
         {
             using (var system = ActorSystem.Create("config-example"))
             {
+                var props = Props.Create(() => new MyActor())
+                    .WithRouter(FromConfig.Instance);
+                var router = system.ActorOf(props, "my-router");
+                
+                router.Tell(new Print());
+                router.Tell(new Print());
+                router.Tell(new Print());
+                router.Tell(new Print());
+                router.Tell(new Print());
             }
         }
     }
