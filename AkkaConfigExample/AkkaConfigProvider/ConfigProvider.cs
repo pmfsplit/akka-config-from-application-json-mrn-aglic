@@ -45,5 +45,15 @@ namespace AkkaConfigProvider
 
             return projectDir;
         }
+
+        private T MapAkkaConfig<T>()
+        {
+            throw new NotImplementedException();
+        }
+
+        private T GetAkkaConfig<T>()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
